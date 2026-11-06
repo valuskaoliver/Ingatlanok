@@ -25,7 +25,7 @@ namespace Ingatlanok
         
         public static int OsszesRegisztraltIngatlan
         {
-            get;
+            get => osszesRegisztraltIngatlan;
         }
         public Ingatlan(string azonosito, string cim, string kategoria, int alapteruletM2) : this(azonosito, cim, kategoria, alapteruletM2, 500)
         {

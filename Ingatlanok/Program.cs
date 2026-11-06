@@ -1,4 +1,5 @@
 ﻿using Ingatlanok;
+using System.Runtime.InteropServices;
 List<Ingatlan> ingatlanok = new List<Ingatlan>();
 if (File.Exists("ingatlanok.txt"))
 {
@@ -24,13 +25,25 @@ if (File.Exists("ingatlanok.txt"))
                 else Console.WriteLine("[HIBA] Nem megfelelőek az adatok");
             }
         }
-        else
-        {
-            Console.WriteLine("[HIBA] Nincs elég adat");
-        }
+        else Console.WriteLine("[HIBA] Nincs elég adat");
     }
 }
-else
+else Console.WriteLine("[HIBA] Fájl nem létezik");
+
+foreach (Ingatlan ingatlan in ingatlanok)
 {
-    Console.WriteLine("[HIBA] Fájl nem létezik");
+    Console.WriteLine(ingatlan);
 }
+Console.WriteLine($"Összes ingatlan száma: {Ingatlan.OsszesRegisztraltIngatlan}");
+
+//Console.WriteLine($"Az összes lakás kategóriájú ingatlan: {}");
+
+Ingatlan legnagy = ingatlanok[3];
+foreach(Ingatlan ing in ingatlanok)
+{
+    if (ing.AlapteruletM2 > legnagy.AlapteruletM2)
+    {
+        legnagy = ing;
+    }
+}
+Console.WriteLine($"Legnagyobb ingatlan: {legnagy}");
